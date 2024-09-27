@@ -1,3 +1,77 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "plugin:prettier/recommended",
+    "eslint:recommended"
+  ],
+  "plugins": [
+    "react",
+    "unused-imports",
+    "import",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "pathGroups": [
+          {
+            "pattern": "^(assets|@assets)/**",
+            "group": "index",
+            "position": "before"
+          },
+          {
+            "pattern": "./assets/**",
+            "group": "index",
+            "position": "after"
+          },
+          {
+            "pattern": "**/*.+(scss|less|sass|css)",
+            "group": "index",
+            "position": "before"
+          },
+          {
+            "pattern": "./**/*.+(scss|less|sass|css)",
+            "group": "index",
+            "position": "after"
+          },
+          {
+            "pattern": "react",
+            "group": "builtin"
+          }
+        ],
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          [
+            "parent",
+            "sibling"
+          ],
+          "index"
+        ],
+        "pathGroupsExcludedImportTypes": [
+          "react"
+        ]
+      }
+    ]
+  }
 }
