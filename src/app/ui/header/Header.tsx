@@ -5,7 +5,7 @@ import { logoIcon } from '@/assets/images';
 
 export const Header = () => {
   return (
-    <nav className="sticky flex py-7 top-0 items-center justify-between gap-8">
+    <nav className="sticky flex py-7 top-0 items-center justify-between gap-8 lg:max-w-screen-xl mx-auto">
       <ul className="flex gap-6 text-white xl:max-w-[424px] text-sm">
         {menu.map((item) => {
           return (
